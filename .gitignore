@@ -1,207 +1,292 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[codz]
-*$py.class
+***Let's begin to learn Dictionary***
 
-# C extensions
-*.so
+# Initializing a dictionary named 'dict' with four key-value pairs
+dict = {
+"name" : "Muhammad Saad", # String key 'name' linked to value 'Muhammad Saad'
+"gender" : "Male",         # String key 'gender' linked to value 'Male'
+"gender" : "Male",
+"age" : 19, # String key 'age' linked to integer value 19
+"passion" : "Student" # String key 'passion' linked to value 'Student'
+}
+print (dict)
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# Re-defining 'dict' with numbers as keys (stored as strings)
+dict ={
+"1" : "Qasim",
+"2" : "Apple",
+"3" : "Ned University"
+}
+# Accessing a specific value using its key inside square brackets
+# This will look for the key "2" and print its corresponding value: Apple
+print(dict["2"])
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+print(dict) # Prints the whole dictionary
+print(dict["3"])# Accesses and prints the value for key "3" (Ned University)
+print(len(dict))# Prints the number of items (key-value pairs) in the dictionary (3)
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-.hypothesis/
-.pytest_cache/
-cover/
+# Checking the data type:
+# Verifies that 'dict' belongs to the dictionary class
+print(type(dict))
 
-# Translations
-*.mo
-*.pot
+print(dict) # Prints the whole dictionary
+print(dict["1"]) # Accessing the value for key "1" (Qasim)
+x=(dict["3"]) # Storing the value of key "3" in the variable 'x'
+print(x) # printing the value stored in "x"
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# Defining a dictionary where keys are strings ("1", "2") and values are car names
+car_names = {
+"1" : "Alto",
+"2" : "Cultus",
+"3" : "Range rover",
+"4" : "Tesla",
+"5" : "Mercedes",
+"6" : "Ferrari"
+}
+print(car_names) # prints the whole dictionary
+#Accessing a value using the key in square brackets []
+# This is fast, but will cause a 'KeyError' if the key doesn't exist.
+x=(car_names["2"])
+print(x)
+# Accessing a value using the .get() method
+# This is safer because it returns 'None' instead of crashing if the key is missing.
+y=car_names.get("5")
+print(y)
 
-# Flask stuff:
-instance/
-.webassets-cache
+print(car_names)
+x=car_names.keys() #Using the .keys() method to extract only the keys from the dictionary
+print(x)
 
-# Scrapy stuff:
-.scrapy
+print(car_names.items()) #The items() method will return each item in a dictionary, as tuples in a list.
 
-# Sphinx documentation
-docs/_build/
+car_names["1"]="Civic"# Updates the value for the existing key "1" from "Alto" to "Civic"
+print(car_names)
 
-# PyBuilder
-.pybuilder/
-target/
+if "1" in car_names:# To determine if a specified key is present in a dictionary use the in keyword:
+  print("yes it is a value stored in the dictionary")
+else:
+  print("No it is not in the list")
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Check if the user's input exists as a KEY in the 'car_names' dictionary.
+x=input("enter any thing you think that is stored in the dictionary : ")
+if x in car_names:
+  print("yes it is a value stored in the dictionary")
+else:
+  print("No it is not in the list")
 
-# IPython
-profile_default/
-ipython_config.py
+# Initialize a dictionary with integer keys and string values
+boys_name ={
+1 :"Muhammad Saad",2 :"Abdullah Razi",3 :"Qasim",4 :"Usman",5 :"zeeshan"
+}
+print(boys_name)
+ # The update() method will update the dictionary with the items from the given argument.
+boys_name.update({5:"Afnan"})
+print(boys_name)
+ # The update() method will update the dictionary with the items from the given argument.
+boys_name.pop(2)
+print(boys_name)
+# The del keyword removes the item with the specified key name.
+del boys_name[5]
+print(boys_name)
+# The clear() method empties the dictionary.
+boys_name.clear()
+print(boys_name)
+# The del keyword can also delete the dictionary completely.
+del boys_name
+print(boys_name)
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+***Nested Dictionary***
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+# The dictionaries can be nested, like dictionary within dictionary. For this
+# nested keys are defined.
+# A nested dictionary where each member key holds another dictionary of details
+my_family = {
+ "member1" : {
+  "name" : "Muhammad Saad",
+  "age" : "19"
+ },
+  "member2" : {
+   "name" : "Haris",
+   "age" : "07"
+ },
+  "member3" : {
+    "name" : "Kashif",
+    "age" : "16"
+ }
+}
+print(my_family)
 
-# UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
+# ***TASK 1***
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-#poetry.toml
+Generate a code which take a list of numbers and provide square of these
+numbers in a new list.
 
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#   pdm recommends including project-wide configuration in pdm.toml, but excluding .pdm-python.
-#   https://pdm-project.org/en/latest/usage/project/#working-with-version-control
-#pdm.lock
-#pdm.toml
-.pdm-python
-.pdm-build/
+Numbers = [1,2,3,4]
 
-# pixi
-#   Similar to Pipfile.lock, it is generally recommended to include pixi.lock in version control.
-#pixi.lock
-#   Pixi creates a virtual environment in the .pixi directory, just like venv module creates one
-#   in the .venv directory. It is recommended not to include this directory in version control.
-.pixi
+numbers =[1,2,3,4,5] # A list which contains various numbers
+sqr_numbers = [] # A new list where the square of above list will be stored
+# A loop that picks each number from number list and calculates
+# its square and then put it into another list
+for num in numbers:
+  sqr_numbers.append(num**2)
+print(f"The original value in the list was : {numbers}")
+print(f"The squared value in the list is now : {sqr_numbers}")
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+# ***TASK 2***
 
-# SageMath parsed files
-*.sage.py
+Write a code which take list of numbers as in input from user and check
+generate a list of numbers which is            
+divisible by 2. Those number which are divisible
+by 2 will be saved in new list.
 
-# Environments
-.env
-.envrc
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# a variable which takes in many input at once by comma seprated values
+numbers = input("Enter numbers separated by commas: ")
+# a new list where the inputs from the above variable will be stored as list format
+numbers_list = []
+# a loop which does so
+for i in numbers.split(","):
 
-# Spyder project settings
-.spyderproject
-.spyproject
+ numbers_list.append(int(i))
+# a new list that will save all the even numbers from the numbers_list into it
+even_numbers = []
+for i in numbers_list: # a loop which does so
 
-# Rope project settings
-.ropeproject
+ if i % 2 == 0:
 
-# mkdocs documentation
-/site
+  even_numbers.append(i)
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+print("Original numbers:", numbers_list)
+print("Numbers divisible by 2:", even_numbers)
 
-# Pyre type checker
-.pyre/
+# ***TASK 3***
 
-# pytype static type analyzer
-.pytype/
+ Write a code which take two list of numbers (l1,l2) as in input and find the
+common elements and save it in new list.
 
-# Cython debug symbols
-cython_debug/
+# a variable that stores the data as comma seprated values given by user
+number11 = input("enter numbers seprated by commas :")
+list11 = [] # alsit that will store in it the data from the above variable as
+# list format
+for i in number11.split(","): # a loop which does the above explanation
+  list11.append(i)
+# another variable that stores the data as comma seprated values given by user
+number12 = input("enter numbers seprated by commas :")
+list12 = [] # alsit that will store in it the data from the above variable as
+# list format
+for i in number12.split(","): # a loop which does so
+  list12.append(i)
+# another list where comman values those were entered by both users will be saved
+commannum = []
+for i in list11: # a loop which perform the task of taking comman values from both users
+  if i in list12:
+    commannum.append(i)
+print(list11)
+print(list12)
+print(commannum)
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+# ***TASK 4***
 
-# Abstra
-# Abstra is an AI-powered process automation framework.
-# Ignore directories containing user credentials, local state, and settings.
-# Learn more at https://abstra.io/docs
-.abstra/
+ Write a code which take an input number and provides a dictionary of
+cubic values till that number. Key is number, value is the cube as follows:
 
-# Visual Studio Code
-#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore 
-#  that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
-#  and can be added to the global gitignore or merged into this file. However, if you prefer, 
-#  you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+{1:1, 2:8, 3:27, ....}
 
-# Ruff stuff:
-.ruff_cache/
+number = int(input("Enter any number")) # a variable which only takes integer
+# values as input
+cubic_dict = {} # a dictionary where the cubic values of above input will be stored
+for i in range(1,number+1):# a loop which takes values from the variable
+# and make its cube then send it to the cub dictionary
+  cubic_dict[i]=i**3
+print(cubic_dict)
 
-# PyPI configuration file
-.pypirc
+***TASK 5***
+---
 
-# Cursor
-#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
-#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
-#  refer to https://docs.cursor.com/context/ignore-files
-.cursorignore
-.cursorindexingignore
 
-# Marimo
-marimo/_static/
-marimo/_lsp/
-__marimo__/
+
+ Write a code which takes four inputs from user name, age, fav_sports as a
+list and fav_hobbies also as a list and print them in the following format.
+
+name= ameem
+     fav_sport= ['cricket', ' football’]
+
+age= 30
+fav_hobbies= ['eating', ' playing']
+
+# making 4 variables as task stated so that a man's personal information should be taken
+user_name = input("enter your name : ")
+age = input("enter your age : ")
+fav_sport = input("enter your favourite sport : ")
+fav_hobbies = input("enter your favourite hobby : ")
+fav_sport = fav_sport.split(",")
+fav_hobbies = fav_hobbies.split(",")
+# writing a print statement to maintain the sequence asked by teacher
+print(f"""your name = {user_name}\tyour favourite sport {fav_sport}
+your age = {age}\t your favourite hobbies = {fav_hobbies}""")
+
+
+# ***TASK 6***
+
+ Make a dictionary that stores names as keys and phone numbers as values.
+Then ask the user to enter a name and display the number.
+
+# making a dictionary where the contact info is saved for specific people
+contacts = {"Shahzain" : "03356789121","Hasnain" : "0312157891","Raheel" : "03218900814"}
+# making a variable that takes users name by which the program can check the
+# entered number either is in the list or not
+name = input("enter your name : ")
+if name in contacts:# a loop which checks the entered name present in the contacts or not
+  print(f"Mr {name}'s number is {contacts[name]}")
+else:
+  print("The entered name is not stored in the contacts")
+
+
+# ***Scenario Questions***
+
+***Q1*** : You are building a system to store marks of a student in different subjects.  
+The marks can be changed later when rechecking happens.  
+Which data type is best and why?  
+***A1*** : A dictionary is perfect because it lets you easily change marks whenever
+you needed and by using the subject names as simple labels to find them.
+
+***Q2*** : You need to store the latitude and longitude of a delivery point. Once saved,
+the values should not change accidentally.  
+Which data type is best and why?      
+***A2*** : A tuple is best because it "locks" the coordinates in place, ensuring they can't be changed or edited once they are saved.
+
+***Q3*** : You are creating a small employee database where each employee has a unique
+ID and a corresponding name.    
+         Which data type is best and why?  
+   ***A3***  : A dictionary is best because it links each unique ID directly to a name for instant, organized lookups.
+
+***Q4*** : You are storing a list of email addresses of people subscribed to a newsletter.  
+You must ensure no duplicates exist.  
+Which data type is best and why?      
+***A4*** : The best data type is a Set because it automatically rejects duplicate entries, ensuring that each email address remains unique within the list.
+
+***Q5*** : You have to store fixed exam seat numbers assigned to each student.      
+ These
+seat numbers cannot change once assigned.  
+Which data type is best and why?              
+***A5*** : The best data type is a Tuple because its immutability ensures seat assignments remain fixed and protected from accidental changes.
+
+***Q6*** : You want to store products and their prices for an online shop.   
+Which data type is best and why?      
+***A6*** : The best data type is a Dictionary (or Map) because it uses key-value pairs to provide instant price lookups based on a unique product name or ID.
+
+***Q7*** : A lottery system generates numbers, but each ticket must contain unique
+numbers only.   
+Which data type is best and why?   
+***A7*** : The best data type is a Set because it automatically prevents any duplicate numbers from being included on the ticket.
+
+***Q8*** : You want to store three fixed colors red blue and white that define a website’s
+theme. These values won’t change during execution.  
+Which data type is best and why?       
+***A8*** : The best data type is a Tuple because it is unchangeable, ensuring your website's theme colors stay exactly the same throughout the entire program.
+
+***Q9*** : You are storing the names of students who attended a class. Some students
+might enter multiple times, but you only want to keep unique names.   
+Which data type is best and why?
+
+***A9*** : The best data type is a Set because it automatically filters out duplicate entries, ensuring each student's name is only stored once regardless of how many times they enter.
